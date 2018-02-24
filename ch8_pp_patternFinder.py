@@ -1,8 +1,10 @@
-def patternFinder(path, pat): 
+def patternFinder(path): 
     import re, os
-    files = os.listdir(path)
-    textRegex = re.compile(r'.txt$')
+    files = os.listdir(path) # to list files in path
+    textRegex = re.compile(r'.txt$') # creat regex object to find txt files
     print('Enter a pattern')
+    
+    pat = input()
     patRegex = re.compile(pat)
     
     for i in files:
@@ -14,8 +16,7 @@ def patternFinder(path, pat):
             fileContent = file.read()
             file.close()
             
-            if patRegex.findall(fileContent) == None:
+            if patRegex.findall(fileContent) == []:
                 print('nothing found')
             else:
                 print(patRegex.findall(fileContent))
-                
