@@ -30,7 +30,7 @@ for excelFile in os.listdir('.'):
             continue
 
         # create csv file name from excelfile and sheetname
-        csvFileName = excelFile + sheetName + '.csv'
+        csvFileName = excelFile.split('.')[0] + '_' + sheetName + '.csv'
         csvFileObj = open(os.path.join('convert_xlsx_csv', csvFileName), 'w', newline = '')
         # create csv writer object for this csv file
         csvWriter =csv.writer(csvFileObj)
